@@ -16,7 +16,7 @@ function App() {
   }
   return (
     <div className="App">
-      <form method='post' action='http://localhost:3001'>
+      <form method='post' action='http://localhost:5000'>
             <div className='name'>
               <label htmlFor='name'>Enter Name:</label>
               <input type='text' name='name' onChange={onChange}/>
