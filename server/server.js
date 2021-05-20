@@ -24,7 +24,23 @@ con.connect(function (err) {
 });
 
 app.get("/", (req, res) => {
-    res.json("OK");
+    con.query(`select * from student`, (err, results) => {
+        if (err) return res.send(err);
+        else {
+            return res.json({
+                data: results,
+            });
+        }
+    });
+});
+
+app.post("/posts", (req, res) => {
+    con.query("SELECT * FROM student", (err, results) => {
+        if (err) throw err;
+        console.log(results)
+        console.log(JSON.stringify(results))
+        res.send(JSON.stringify(results));
+    });
 });
 
 app.post("/", (req, res) => {
@@ -40,7 +56,12 @@ app.post("/", (req, res) => {
             }
         );
     }
-    res.json("Form recieved");
+    con.query("SELECT * FROM student", (err, results) => {
+        if (err) throw err;
+        console.log(results)
+        console.log(JSON.stringify(results))
+        res.json(JSON.stringify(results));
+    });
 });
 
 app.listen(5000, () => {
