@@ -18,7 +18,7 @@ function App() {
   // 데이터 가져오기
   const [data,setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/posts/", {
+    fetch("http://3.36.56.119:5000/posts/", {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -32,7 +32,7 @@ function App() {
   },[])
   return (
       <div className="App">
-          <form method="post" action="http://localhost:5000/">
+          <form method="post" action="http://3.36.56.119:5000/">
               <div className="name">
                   <label htmlFor="name">Enter Name:</label>
                   <input type="text" name="name" onChange={onChange} />
