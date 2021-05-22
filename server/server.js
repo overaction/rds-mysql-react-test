@@ -1,6 +1,8 @@
+const config = require('./config.json')
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -10,10 +12,10 @@ let mysql = require("mysql");
 
 // create a connection variable with the required details
 let con = mysql.createConnection({
-    host: "database-3.cf2u0cxbe2r4.ap-northeast-2.rds.amazonaws.com", // ip address of server running mysql
-    user: "admin", // user name to your mysql database
-    password: "sik06256!", // corresponding password
-    database: "testdb", // use the specified database
+    host: config.host, // ip address of server running mysql
+    user: config.user, // user name to your mysql database
+    password: config.password, // corresponding password
+    database: config.database, // use the specified database
 });
 
 // make to connection to the database.
